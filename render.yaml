@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: jem-auto-api
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: "https://cars.iwatdigital.online,http://localhost:5500"
