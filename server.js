@@ -34,8 +34,9 @@ app.get('/api/cars', (_req, res)=>{
 });
 
 // Get by id
-app.get('/api/cars/:id', (req, res)=>{
-  const car = cars.find(c => String(c.id) === String(req.params.id));
+app.get('/api/cars/:id', (req, res) => {
+  const id = String(req.params.id);
+  const car = cars.find(c => String(c.id) === id);   // works whether ids are numbers or strings
   if (!car) return res.status(404).json({ message: 'Car not found' });
   res.json(car);
 });
@@ -77,4 +78,5 @@ app.delete('/api/cars/:id', (req,res)=>{
 app.listen(PORT, HOST, () => {
   console.log(`JEM AUTO API listening on http://${HOST}:${PORT}`);
 });
+
 
