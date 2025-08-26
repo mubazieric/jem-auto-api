@@ -3,7 +3,9 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;   // Render provides PORT
+const HOST = '0.0.0.0';                          // bind on all interfaces
+
 
 // Allowed origins (comma-separated) e.g. "https://cars.iwatdigital.online,http://localhost:5500"
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://cars.iwatdigital.online').split(',').map(s=>s.trim());
@@ -72,6 +74,7 @@ app.delete('/api/cars/:id', (req,res)=>{
   res.status(204).end();
 });
 
-app.listen(PORT, ()=>{
-  console.log(`JEM AUTO API listening on ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`JEM AUTO API listening on http://${HOST}:${PORT}`);
 });
+
