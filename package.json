@@ -1,7 +1,7 @@
 {
   "name": "jem-auto-api",
-  "version": "1.0.0",
-  "description": "JEM AUTO minimal API for car listings",
+  "version": "1.1.0",
+  "description": "JEM AUTO API with more demo cars and currency config",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -10,5 +10,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
